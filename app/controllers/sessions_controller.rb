@@ -9,4 +9,9 @@ class SessionsController < ActionController::Base
       redirect_to welcome_login_path
     end
   end
+
+  def logout
+    session[:user_id] = nil
+    redirect_to welcome_index_path
+  end
 end

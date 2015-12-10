@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   get 'welcome/index'
 
   get 'welcome/login' => 'users#login'
+  get 'logout' => 'sessions#logout'
 
   resources :users
   resources :sessions
