@@ -14,4 +14,17 @@ class ApplicationController < ActionController::Base
   def signed_in
     current_user.present?
   end
+
+  def require_login
+    unless signed_in
+      flash[:error] = "You must sign in to see this page"
+      redirect_to welcome_login_path
+    end
+  end
+
+  def skip_if_logged_in
+    if signed_in
+      redirect_to users_path
+    end
+  end
 end
